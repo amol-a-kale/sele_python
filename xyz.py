@@ -1,9 +1,8 @@
-contacts_list = [{'firstname': 'Tom', 'lastname': 'Cruise', 'email': 'tomcruise@hollywood.com'},
-                 {'firstname': 'Bruce', 'lastname': 'Wayne', 'email': 'brucewayne@hollywood.com'},
-                 {'firstname': 'Sherlocks', 'lastname': 'Homes', 'email': 'tonystark@hollywood.com'}]
+list = ['abcd', 786, 2.23, 'john', 70.2]
+tinylist = [123, 'john',2.23]
 
-for i in range(0, len(contacts_list)):
-    print(contacts_list[i].values())
-    value = list(contacts_list[i].values())
-    #print(value[0],value[2])
-
+# comparing value of two list
+for item in list:
+    for item1 in tinylist:
+        if item == item1:
+            print(item)

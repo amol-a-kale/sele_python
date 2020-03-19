@@ -5,7 +5,7 @@ from time import sleep
 
 
 from selenium.webdriver.common.by import By
-driver=webdriver.Chrome(executable_path="C:\\Users\\Sanket\\amol2\\webdriver\\chromedriver.exe")
+driver=webdriver.Chrome(executable_path="C:\\Users\\Sanket\\Desktop\\sele_python\\webdriver\\chromedriver.exe")
 
 driver.get("https://aiims.edu/en.html")
 
@@ -24,6 +24,7 @@ for title in tender_title:
     title_tender=title.text
     tender_title_list.append(title_tender)
 print(tender_title_list)
+p
 
 driver.close()
 driver.quit()
