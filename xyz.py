@@ -1,8 +1,62 @@
-list = ['abcd', 786, 2.23, 'john', 70.2]
-tinylist = [123, 'john',2.23]
+from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+from time import sleep
+from selenium.webdriver.common.by import By
+driver=webdriver.Chrome (executable_path="C:\\Users\\Sanket\\Desktop\\sele_python\\webdriver\\chromedriver.exe")
+driver.get("https://jqueryui.com/droppable/")
 
-# comparing value of two list
-for item in list:
-    for item1 in tinylist:
-        if item == item1:
-            print(item)
+sleep(3)
+driver.maximize_window()
+
+#driver.find_element_by_tag_name("iframe") # even if I have more than 1 iframe then also it will return only 1 which
+# will be the very first iframe
+
+iframe_list = driver.find_elements_by_tag_name("iframe")
+
+print(len(iframe_list))
+
+driver.switch_to.frame(0)
+
+draggable_element = driver.find_element_by_id("draggable")
+
+droppable_element = driver.find_element_by_id("droppable")
+
+actions = ActionChains(driver)
+
+actions.drag_and_drop(draggable_element, droppable_element).perform()
+
+# actions.drag_and_drop_by_offset(draggable_element, 100, 0).perform();
+# actions.drag_and_drop_by_offset(draggable_element, -100, 0).perform();
+
+sleep(5)
+
+
+# driver.switch_to_default_content()
+driver.switch_to.default_content()
+
+slider_link = driver.find_element_by_xpath("//a[text()='Slider']")
+
+#driver.execute_script("arguments[0].scrollIntoView();", slider_link)
+
+slider_link.click()
+
+
+#driver.execute_script("window.scrollBy(0,-250);")
+
+sleep(5)
+
+#iframe = driver.find_elements_by_tag_name("iframe")[0]
+
+driver.switch_to.frame(0)
+
+#driver.execute_script("window.scrollBy(x-pixels,y-pixels)");
+
+slider = driver.find_element_by_xpath("//div[@id='slider']//span")
+#slider =driver.find_element_by_xpath("//div/span[@class='ui-slider-handle ui-corner-all ui-state-default']")
+actions=ActionChains(driver)
+actions.drag_and_drop_by_offset(slider, 100, 0).perform()
+
+sleep(5)
+
+driver.close()
+driver.quit()

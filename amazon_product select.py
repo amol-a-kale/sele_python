@@ -1,4 +1,5 @@
 from selenium import webdriver
+
 import time
 
 from time import sleep
@@ -52,6 +53,9 @@ for expected_product in expected_product_list:
                     driver.close()
                     driver.switch_to.window(parent_window)
                     sleep(3)
+if (expected_product==product.text):
+    product.click()
+
 
 # for product in products_list:
 #     print(product.text)
