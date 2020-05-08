@@ -11,6 +11,8 @@ laptop_expected_list=['Sony vaio i5', 'Sony vaio i7', 'MacBook air', 'Dell i7 8g
 
 laptop_actual_list=[]
 find_product=driver.find_elements_by_xpath("//div/h4/a")
+
+
 for product in find_product:
     laptop_actual_list.append(product.text)
 print(laptop_actual_list)
