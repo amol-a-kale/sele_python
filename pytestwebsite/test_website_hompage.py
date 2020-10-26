@@ -12,16 +12,15 @@ class TestMyWebsite:
         screenshot_folder_path = "C:\\Users\\Sanket\Desktop\\sele_python\\screenshot_save\\image\\"
         self.driver.save_screenshot(screenshot_folder_path + str(round(time() * 1000)) + ".png")
 
-
     def test_website_launch(self, setUp):
         is_displayed = self.driver.find_element_by_xpath("//img[@alt='logo']").is_displayed()
-        assert True==is_displayed
+        assert True == is_displayed
 
     def test_homepage_title(self, setUp):
         print('Getting homepage title')
         page_title = self.driver.title
         print('Comparing title')
-        assert page_title=='explorechoice.org'
+        assert page_title == 'explorechoice.org'
 
     def test_homepage_links(self, setUp):
         print('Getting all links')
